@@ -1,0 +1,18 @@
+RewriteEngine On 
+
+
+
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
+
+#404 Redirect
+ErrorDocument 404 /servicebased/404.php
+
+
+
+RewriteCond %{REQUEST_FILENAME} !-d    
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^p([0-9a-zA-Z-]+)$ product-details.php?qu=$1 [QSA,L]
+RewriteRule ^c([a-zA-Z-]+)$ commercial-details.php?pkgnm=$1 [QSA,L]
+RewriteRule ^t([a-zA-Z-]+)$ technical-details.php?pkgnm=$1 [QSA,L]
